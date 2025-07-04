@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SEQUOIA QUANT | Professional US Stock Market Education</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0a192f;       /* 深蓝 - 专业金融感 */
+      --primary-dark: #071426;   /* 更深的专业蓝 */
+      --secondary: #d4af37;     /* 金色 - 财富与成功 */
+      --accent: #00a896;        /* 青绿色 - 活力与增长 */
+      --light: #f8f9fa;         /* 浅色背景 */
+      --dark: #020c1b;          /* 深色背景 */
+      --gray: #6c757d;          /* 中性灰色 */
+      --light-gray: #e9ecef;    /* 浅灰色 */
+      --card-bg: #ffffff;       /* 卡片背景 */
+      --success: #28a745;       /* 成功绿色 */
+      --positive: #10b981;      /* 上涨绿色 */
+      --negative: #ef4444;     /* 下跌红色 */
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    section {
+      padding: 100px 0;
+    }
+    
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(10, 25, 47, 0.1);
+      transition: var(--transition);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    
+    .logo:hover {
+      transform: translateY(-2px);
+    }
+    
+    .logo-icon {
+      color: var(--secondary);
+      font-size: 28px;
+      transition: var(--transition);
+    }
+    
+    .logo:hover .logo-icon {
+      transform: rotate(15deg);
+    }
+    
+    .logo-text {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      position: relative;
+      letter-spacing: 0.5px;
+    }
+    
+    .logo-text::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--secondary);
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
+    
+    .logo:hover .logo-text::after {
+      transform: scaleX(1);
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+    
+    nav a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      position: relative;
+      padding: 5px 0;
+      transition: var(--transition);
+    }
+    
+    nav a:hover {
+      color: var(--secondary);
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--secondary);
+      transition: var(--transition);
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .mobile-menu {
+      display: none;
+      font-size: 24px;
+      color: var(--primary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .mobile-menu:hover {
+      color: var(--secondary);
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: 
+        linear-gradient(135deg, rgba(10, 25, 47, 0.9) 0%, rgba(7, 20, 38, 0.95) 100%),
+        url('https://images.unsplash.com/photo-1620288627223-53302f4e8c74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+      color: white;
+    }
+    
+    /* Hero Animation */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, transparent 0%, rgba(10, 25, 47, 0.5) 100%);
+      z-index: 1;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeUp 1s forwards 0.3s;
+    }
+    
+    .hero h1 {
+      font-size: 3.8rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero h1 span {
+      color: var(--secondary);
+      position: relative;
+    }
+    
+    .hero h1 span::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.8s ease;
+    }
+    
+    .hero h1 span.animate::after {
+      transform: scaleX(1);
+    }
+    
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 40px;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 600px;
+      font-weight: 300;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeUp 1s forwards 0.6s;
+    }
+    
+    .hero-stats {
+      display: flex;
+      gap: 30px;
+      margin-top: 50px;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeUp 1s forwards 0.9s;
+    }
+    
+    .hero-stat {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      min-width: 180px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
+    }
+    
+    .hero-stat:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    .hero-stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 10px;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .hero-stat-text {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    
+    /* About Section */
+    .about {
+      position: relative;
+      background: var(--light);
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 70px;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-size: 2.8rem;
+      display: inline-block;
+      position: relative;
+      margin-bottom: 20px;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 2px;
+      transition: width 0.5s ease;
+    }
+    
+    .section-title:hover h2::after {
+      width: 120px;
+    }
+    
+    .section-title p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--gray);
+      font-size: 1.1rem;
+    }
+    
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    
+    .about-text h3 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: var(--primary);
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .about-text h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+    }
+    
+    .about-text p {
+      margin-bottom: 25px;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+    
+    .about-image {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      height: 500px;
+      transform: perspective(1000px) rotateY(-5deg);
+      transition: var(--transition);
+      border: 5px solid rgba(255, 255, 255, 0.8);
+    }
+    
+    .about-image:hover {
+      transform: perspective(1000px) rotateY(0);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: var(--transition);
+    }
+    
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* Performance Section */
+    .performance {
+      background: var(--primary);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .performance::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+      opacity: 0.15;
+    }
+    
+    .performance-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    
+    .performance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .performance-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 40px 30px;
+      text-align: center;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .performance-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+      transform: translate(25%, 25%);
+      transition: var(--transition);
+      opacity: 0;
+    }
+    
+    .performance-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    }
+    
+    .performance-card:hover::before {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+    
+    .performance-icon {
+      font-size: 48px;
+      color: var(--secondary);
+      margin-bottom: 25px;
+      transition: var(--transition);
+    }
+    
+    .performance-card:hover .performance-icon {
+      transform: scale(1.1);
+      color: var(--accent);
+    }
+    
+    .performance-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: white;
+    }
+    
+    .performance-card .value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 10px;
+      font-family: 'Poppins', sans-serif;
+      transition: var(--transition);
+    }
+    
+    .performance-card:hover .value {
+      color: white;
+    }
+    
+    .performance-card p {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    /* Clients Section */
+    .clients {
+      background: var(--light);
+    }
+    
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      align-items: center;
+      margin-top: 50px;
+    }
+    
+    .client-logo {
+      background: white;
+      border-radius: 8px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .client-logo::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(10, 25, 47, 0.05) 0%, transparent 100%);
+      opacity: 0;
+      transition: var(--transition);
+    }
+    
+    .client-logo:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .client-logo:hover::before {
+      opacity: 1;
+    }
+    
+    .client-logo img {
+      max-width: 100%;
+      max-height: 70px;
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: var(--transition);
+    }
+    
+    .client-logo:hover img {
+      filter: grayscale(0);
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    
+    /* Testimonials Section */
+    .testimonials-section {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      position: relative;
+    }
+    
+    .testimonials-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .testimonial-card {
+      background: white;
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+      position: relative;
+      transition: var(--transition);
+      border: 1px solid rgba(10, 25, 47, 0.05);
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+      border-color: rgba(212, 175, 55, 0.2);
+    }
+    
+    .testimonial-card::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 5rem;
+      color: rgba(10, 25, 47, 0.05);
+      font-family: serif;
+      line-height: 1;
+      z-index: 0;
+    }
+    
+    .testimonial-content {
+      margin-top: 20px;
+      color: var(--gray);
+      font-style: italic;
+      line-height: 1.8;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      margin-top: 30px;
+    }
+    
+    .author-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--secondary);
+      margin-right: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: white;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+    
+    .testimonial-card:hover .author-avatar {
+      transform: rotate(15deg);
+      background: var(--accent);
+    }
+    
+    .author-info h4 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      color: var(--primary);
+    }
+    
+    .author-info p {
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin: 0;
+      font-weight: 500;
+    }
+    
+    /* Financial Markets Section */
+    .markets {
+      background: var(--light-gray);
+      padding: 100px 0;
+    }
+    
+    .markets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .market-card {
+      background: white;
+      border-radius: 10px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(10, 25, 47, 0.05);
+    }
+    
+    .market-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--secondary);
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
+    
+    .market-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .market-card:hover::after {
+      transform: scaleX(1);
+    }
+    
+    .market-icon {
+      font-size: 48px;
+      color: var(--secondary);
+      margin-bottom: 25px;
+      transition: var(--transition);
+    }
+    
+    .market-card:hover .market-icon {
+      transform: rotate(15deg) scale(1.1);
+      color: var(--accent);
+    }
+    
+    .market-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    
+    .market-card p {
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+    
+    /* Compliance Section */
+    .compliance {
+      background: var(--light);
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    .compliance-content {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(10, 25, 47, 0.05);
+    }
+    
+    .compliance-content::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+      z-index: 0;
+    }
+    
+    .compliance-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .compliance-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--secondary);
+      font-size: 30px;
+      transition: var(--transition);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .compliance-icon:hover {
+      transform: translateY(-5px);
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .compliance h3 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .compliance p {
+      color: var(--gray);
+      margin-bottom: 20px;
+      line-height: 1.8;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .compliance-badge {
+      display: inline-flex;
+      align-items: center;
+      background: var(--light-gray);
+      padding: 10px 20px;
+      border-radius: 30px;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: var(--primary);
+      transition: var(--transition);
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+    
+    .compliance-badge:hover {
+      transform: translateY(-3px);
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .compliance-badge i {
+      color: var(--success);
+      margin-right: 8px;
+      transition: var(--transition);
+    }
+    
+    .compliance-badge:hover i {
+      color: white;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 80px 0 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 30%);
+      pointer-events: none;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .footer-logo {
+      margin-bottom: 20px;
+    }
+    
+    .footer-about p {
+      margin-bottom: 25px;
+      line-height: 1.8;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+      transition: var(--transition);
+    }
+    
+    .social-icon:hover {
+      background: var(--secondary);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .footer-heading {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+      color: white;
+    }
+    
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--secondary);
+      transition: var(--transition);
+    }
+    
+    .footer-heading:hover::after {
+      width: 60px;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: var(--secondary);
+      padding-left: 5px;
+      transform: translateX(5px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .regulatory-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.7);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .regulatory-info p {
+      max-width: 800px;
+      text-align: center;
+      line-height: 1.6;
+    }
+    
+    /* New Interactive Elements */
+    .cta-button {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--primary-dark);
+      padding: 15px 35px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+      position: relative;
+      overflow: hidden;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+      background: #e5c44d;
+    }
+    
+    .cta-button::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+      transform: translate(25%, 25%);
+      transition: var(--transition);
+      opacity: 0;
+    }
+    
+    .cta-button:hover::after {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+    
+    .featured-resources {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      padding: 80px 0;
+      color: white;
+    }
+    
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .resource-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .resource-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+    
+    .resource-icon {
+      font-size: 40px;
+      color: var(--secondary);
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+    
+    .resource-card:hover .resource-icon {
+      transform: rotate(15deg) scale(1.2);
+      color: var(--accent);
+    }
+    
+    .resource-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: white;
+    }
+    
+    .resource-card p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 20px;
+    }
+    
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .fade-in.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .about-content,
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-image {
+        order: -1;
+      }
+      
+      .hero h1 {
+        font-size: 3rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      }
+      
+      nav ul.show {
+        display: flex;
+      }
+      
+      .mobile-menu {
+        display: block;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      section {
+        padding: 70px 0;
+      }
+      
+      .section-title h2 {
+        font-size: 2.2rem;
+      }
+      
+      .hero-stats {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .compliance-icons {
+        gap: 15px;
+      }
+      
+      .compliance-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero {
+        text-align: center;
+      }
+      
+      .hero-content {
+        margin: 0 auto;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-stats {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo" id="home-logo">
+        <div class="logo-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="logo-text">SEQUOIA QUANT</div>
+      </div>
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#performance">Performance</a></li>
+          <li><a href="#markets">Markets</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#compliance">Compliance</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu" id="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <h1>Institutional-Grade <span>Investment Strategies</span> for Discerning Investors</h1>
+      <p>SEQUOIA QUANT provides professional education and quantitative strategies for mastering the US stock market. Join our elite community of sophisticated investors.</p>
+      <a href="#resources" class="cta-button">Explore Our Resources</a>
+      
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-number">12,000+</div>
+          <div class="hero-stat-text">Investors Educated</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">$120B+</div>
+          <div class="hero-stat-text">Assets Under Guidance</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">98%</div>
+          <div class="hero-stat-text">Client Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2>Professional Education for Modern Investors</h2>
+        <p>Founded by industry experts with decades of experience in quantitative finance, SEQUOIA QUANT is dedicated to demystifying the complexities of the US stock market.</p>
+      </div>
+      <div class="about-content">
+        <div class="about-text fade-in">
+          <h3>Transform Your Investment Approach</h3>
+          <p>At SEQUOIA QUANT, we combine academic rigor with practical application, teaching you how to build, test, and implement sophisticated trading systems used by institutional investors.</p>
+          <p>Our curriculum is designed by Wall Street veterans who have successfully navigated multiple market cycles, bringing you proven strategies that deliver consistent results.</p>
+          <p>We focus on data-driven decision making, risk management, and quantitative analysis to help you achieve superior returns while minimizing exposure.</p>
+          <a href="#resources" class="cta-button">Discover Our Methods</a>
+        </div>
+        <div class="about-image fade-in">
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="SEQUOIA QUANT Education">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance Section -->
+  <section class="performance" id="performance">
+    <div class="container performance-content">
+      <div class="section-title fade-in">
+        <h2 style="color: white;">Quantitative Performance Metrics</h2>
+        <p style="color: rgba(255, 255, 255, 0.85);">Our data-driven approach delivers consistent results across market conditions</p>
+      </div>
+      
+      <div class="performance-grid">
+        <div class="performance-card fade-in">
+          <div class="performance-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Annual Returns</h3>
+          <div class="value">24.7%</div>
+          <p>Average annual portfolio growth</p>
+        </div>
+        
+        <div class="performance-card fade-in">
+          <div class="performance-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Risk Management</h3>
+          <div class="value">1.8 Sharpe</div>
+          <p>Consistent risk-adjusted returns</p>
+        </div>
+        
+        <div class="performance-card fade-in">
+          <div class="performance-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Client Growth</h3>
+          <div class="value">42% YoY</div>
+          <p>New institutional clients</p>
+        </div>
+        
+        <div class="performance-card fade-in">
+          <div class="performance-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Education Impact</h3>
+          <div class="value">89%</div>
+          <p>Students achieving financial goals</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Financial Markets Section -->
+  <section class="markets" id="markets">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2>US Market Specializations</h2>
+        <p>Our expertise covers all major segments of the US financial markets</p>
+      </div>
+      
+      <div class="markets-grid">
+        <div class="market-card fade-in">
+          <div class="market-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <h3>Equity Markets</h3>
+          <p>Master the art of stock selection and portfolio construction with our quantitative models for long-term growth.</p>
+        </div>
+        
+        <div class="market-card fade-in">
+          <div class="market-icon">
+            <i class="fas fa-exchange-alt"></i>
+          </div>
+          <h3>Options Trading</h3>
+          <p>Advanced strategies for volatility trading, hedging, and generating consistent income streams.</p>
+        </div>
+        
+        <div class="market-card fade-in">
+          <div class="market-icon">
+            <i class="fas fa-balance-scale"></i>
+          </div>
+          <h3>Futures & Derivatives</h3>
+          <p>Professional approaches to leverage, hedging, and portfolio protection using derivatives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Resources Section -->
+  <section class="featured-resources" id="resources">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2 style="color: white;">Educational Resources</h2>
+        <p style="color: rgba(255, 255, 255, 0.85);">Access premium educational content to enhance your investment knowledge</p>
+      </div>
+      
+      <div class="resources-grid">
+        <div class="resource-card fade-in">
+          <div class="resource-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <h3>Quantitative Strategies Guide</h3>
+          <p>Comprehensive guide to building and implementing institutional-grade investment strategies.</p>
+        </div>
+        
+        <div class="resource-card fade-in">
+          <div class="resource-icon">
+            <i class="fas fa-video"></i>
+          </div>
+          <h3>Market Analysis Webinars</h3>
+          <p>Weekly deep dives into market trends, technical analysis, and portfolio optimization.</p>
+        </div>
+        
+        <div class="resource-card fade-in">
+          <div class="resource-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3>Performance Analytics</h3>
+          <p>Exclusive access to our proprietary market performance metrics and analytics tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients Section -->
+  <section class="clients" id="clients">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2>Trusted by Leading Institutions</h2>
+        <p>Our quantitative strategies are utilized by some of the most respected names in finance</p>
+      </div>
+      
+      <div class="clients-grid">
+        <div class="client-logo fade-in">
+          <img src="https://crystalpng.com/wp-content/uploads/2025/05/Goldman-Sachs-Logo.png" alt="Goldman Sachs">
+        </div>
+        <div class="client-logo fade-in">
+          <img src="https://pbs.twimg.com/profile_images/1631347869687898142/ATwo7QZZ_400x400.jpg" alt="Morgan Stanley">
+        </div>
+        <div class="client-logo fade-in">
+          <img src="https://altaseamedia.s3.us-west-1.amazonaws.com/wp-content/uploads/2023/09/13122618/JP-Morgan-Chase-Emblem.png" alt="J.P. Morgan">
+        </div>
+        <div class="client-logo fade-in">
+          <img src="https://i.pinimg.com/736x/f4/95/3c/f4953c16c252f33ce5e41889198deb43.jpg" alt="BlackRock">
+        </div>
+        <div class="client-logo fade-in">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Citibank.svg/320px-Citibank.svg.png" alt="Citi">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance Section -->
+  <section class="compliance" id="compliance">
+    <div class="container">
+      <div class="compliance-content">
+        <div class="compliance-icons fade-in">
+          <div class="compliance-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <div class="compliance-icon">
+            <i class="fas fa-balance-scale"></i>
+          </div>
+          <div class="compliance-icon">
+            <i class="fas fa-gavel"></i>
+          </div>
+        </div>
+        
+        <h3 class="fade-in">Regulatory Compliance & Oversight</h3>
+        
+        <p class="fade-in">SEQUOIA QUANT is a registered investment adviser with the U.S. Securities and Exchange Commission (SEC) under the Investment Advisers Act of 1940.</p>
+        
+        <p class="fade-in">All educational content and investment strategies comply with FINRA regulations and SEC guidelines. Our firm maintains strict adherence to fiduciary standards, placing client interests above all others.</p>
+        
+        <div class="compliance-badge fade-in">
+          <i class="fas fa-check-circle"></i> SEC Registered Investment Adviser
+        </div>
+        
+        <div class="compliance-badge fade-in">
+          <i class="fas fa-check-circle"></i> FINRA Compliance Certified
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <div class="logo" id="footer-logo">
+              <div class="logo-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="logo-text">SEQUOIA QUANT</div>
+            </div>
+          </div>
+          <p>We focus on quantitative investing in the U.S. stock market, with strategies developed by a team of experts who have decades of experience at top Wall Street institutions. By combining advanced big data and algorithmic models, we help investors scientifically seize market opportunities and achieve stable excess returns. Our strategies support a wide range of styles and risk preferences, and are continuously optimized and updated to ensure your wealth can grow sustainably.</p>
+          <div class="social-icons">
+            <a class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a class="social-icon"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links-container">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#performance">Performance</a></li>
+            <li><a href="#markets">Market Specializations</a></li>
+            <li><a href="#resources">Educational Resources</a></li>
+            <li><a href="#compliance">Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="regulatory-info">
+        <p>SEQUOIA QUANT is a registered investment adviser with the U.S. Securities and Exchange Commission (SEC). Registration does not imply a certain level of skill or training.</p>
+        <p>All investments involve risk, including the potential loss of principal. Past performance is no guarantee of future results.</p>
+      </div>
+      
+      <div class="copyright">
+        &copy; 2025 SEQUOIA QUANT Investment Education. All rights reserved.<br>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+        header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+      } else {
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.97)';
+        header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+      }
+    });
+    
+    // Mobile menu toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
+    
+    mobileMenu.addEventListener('click', function() {
+      const isOpen = navMenu.classList.contains('show');
+      
+      if (isOpen) {
+        navMenu.classList.remove('show');
+        mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+      } else {
+        navMenu.classList.add('show');
+        mobileMenu.innerHTML = '<i class="fas fa-times"></i>';
+      }
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('show');
+        mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+    
+    // Logo click to return to home
+    const homeLogo = document.getElementById('home-logo');
+    const footerLogo = document.getElementById('footer-logo');
+    
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+    
+    homeLogo.addEventListener('click', scrollToTop);
+    footerLogo.addEventListener('click', scrollToTop);
+    
+    // Hero animation
+    document.querySelector('.hero h1 span').classList.add('animate');
+    
+    // Scroll animation for elements
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const appearOptions = {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add('appear');
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+    
+    fadeElements.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+</body>
+</html>
