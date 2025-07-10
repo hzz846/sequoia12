@@ -4,11 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SEQUOIA QUANT | Professional US Stock Market Education</title>
- <title>Document</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-</head>
-<body>
-</html>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -1049,6 +1045,95 @@
       color: rgba(255, 255, 255, 0.8);
       margin-bottom: 20px;
     }
+
+    /* Analyst Section */
+    .analyst-section {
+      background: var(--light);
+      padding: 100px 0;
+    }
+    
+    .analyst-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .analyst-card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(10, 25, 47, 0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .analyst-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      border-color: rgba(212, 175, 55, 0.2);
+    }
+    
+    .analyst-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--secondary);
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+    
+    .analyst-card:hover .analyst-avatar {
+      transform: scale(1.05);
+      border-color: var(--accent);
+    }
+    
+    .analyst-info {
+      flex-grow: 1;
+    }
+    
+    .analyst-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+    
+    .analyst-info .position {
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+    
+    .analyst-info p {
+      color: var(--gray);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    
+    .analyst-expertise {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 15px;
+    }
+    
+    .expertise-tag {
+      background: rgba(212, 175, 55, 0.1);
+      color: var(--primary-dark);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
     
     /* Animations */
     @keyframes fadeUp {
@@ -1182,6 +1267,7 @@
           <li><a href="#performance">Performance</a></li>
           <li><a href="#markets">Markets</a></li>
           <li><a href="#resources">Resources</a></li>
+          <li><a href="#team">Team</a></li>
           <li><a href="#compliance">Compliance</a></li>
         </ul>
       </nav>
@@ -1385,6 +1471,102 @@
     </div>
   </section>
 
+  <!-- Analyst Team Section -->
+  <section class="analyst-section" id="team">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2>Meet Our Analyst Team</h2>
+        <p>Our global team of seasoned financial analysts brings decades of experience from top investment firms.</p>
+      </div>
+
+      <div class="analyst-grid">
+        <div class="analyst-card fade-in">
+          <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2F699pic.com%2Fimage%2Fgupiaofenxishi.html&psig=AOvVaw2uacFwt9iXJZUyb4nodGqY&ust=1752262987521000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMDMv7yGs44DFQAAAAAdAAAAABAX&w=500&q=80" alt="John Anderson" class="analyst-avatar">
+          <div class="analyst-info">
+            <h3>John Anderson</h3>
+            <div class="position">Chief Investment Strategist</div>
+            <p>Former Goldman Sachs portfolio strategist with 15 years of experience in macroeconomics and asset allocation.</p>
+            <div class="analyst-expertise">
+              <span class="expertise-tag">Asset Allocation</span>
+              <span class="expertise-tag">Macroeconomics</span>
+              <span class="expertise-tag">Portfolio Strategy</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="analyst-card fade-in">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Emma Thompson" class="analyst-avatar">
+          <div class="analyst-info">
+            <h3>Emma Thompson</h3>
+            <div class="position">Quantitative Research Director</div>
+            <p>PhD in Statistics from MIT with expertise in developing machine learning models for market prediction.</p>
+            <div class="analyst-expertise">
+              <span class="expertise-tag">Machine Learning</span>
+              <span class="expertise-tag">Statistical Modeling</span>
+              <span class="expertise-tag">Predictive Analytics</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="analyst-card fade-in">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Robert Lee" class="analyst-avatar">
+          <div class="analyst-info">
+            <h3>Robert Lee</h3>
+            <div class="position">Derivatives Specialist</div>
+            <p>15+ years in options and volatility trading with expertise in complex derivatives strategies.</p>
+            <div class="analyst-expertise">
+              <span class="expertise-tag">Options Trading</span>
+              <span class="expertise-tag">Volatility</span>
+              <span class="expertise-tag">Risk Management</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="analyst-card fade-in">
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sophia Martinez" class="analyst-avatar">
+          <div class="analyst-info">
+            <h3>Sophia Martinez</h3>
+            <div class="position">Head of Risk Management</div>
+            <p>CFA charterholder with 18 years of Wall Street experience in risk modeling and valuation.</p>
+            <div class="analyst-expertise">
+              <span class="expertise-tag">Risk Analysis</span>
+              <span class="expertise-tag">Valuation</span>
+              <span class="expertise-tag">CFA</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="analyst-card fade-in">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Daniel White" class="analyst-avatar">
+          <div class="analyst-info">
+            <h3>Daniel White</h3>
+            <div class="position">ESG Investment Director</div>
+            <p>Former BlackRock analyst specializing in sustainable investing and portfolio analytics.</p>
+            <div class="analyst-expertise">
+              <span class="expertise-tag">ESG Investing</span>
+              <span class="expertise-tag">Portfolio Analytics</span>
+              <span class="expertise-tag">Sustainability</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="analyst-card fade-in">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Olivia Zhang" class="analyst-avatar">
+          <div class="analyst-info">
+            <h3>Olivia Zhang</h3>
+            <div class="position">Technical Analysis Lead</div>
+            <p>Ex-JP Morgan trader with expertise in global markets and advanced technical analysis techniques.</p>
+            <div class="analyst-expertise">
+              <span class="expertise-tag">Technical Analysis</span>
+              <span class="expertise-tag">Global Markets</span>
+              <span class="expertise-tag">Trading Strategies</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Compliance Section -->
   <section class="compliance" id="compliance">
     <div class="container">
@@ -1447,6 +1629,7 @@
             <li><a href="#performance">Performance</a></li>
             <li><a href="#markets">Market Specializations</a></li>
             <li><a href="#resources">Educational Resources</a></li>
+            <li><a href="#team">Analyst Team</a></li>
             <li><a href="#compliance">Compliance</a></li>
           </ul>
         </div>
